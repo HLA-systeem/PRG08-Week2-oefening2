@@ -5,12 +5,18 @@ class Game {
     public static instance:Game;
     private cars: Array<Car> = new Array<Car>();
     private rocks: Array<Rock> = new Array<Rock>();
+    private score: number = 0;
 
     private constructor() {
         for (let i=0; i<6; i+=1) {
             let x = (Math.floor ((Math.random() * 100) + 1))*-2;
             let y = i*100 + 25;  
             this.cars.push(new Car(x,y));
+        }
+
+        for (let i=0; i<12; i+=1) {
+            let x = (Math.floor ((Math.random() * 100) + 1))*-2;
+            let y = (Math.floor ((Math.random() * (i*100)+ 1)));  
             this.rocks.push(new Rock(y));
         }
         
@@ -26,19 +32,22 @@ class Game {
 
     private gameLoop(){
         for (let i=0; i<6; i+=1) {
-            Util.calculateCollision(this.cars[i],this.rocks[i]);
+            for (let i2=0; i2<12; i2+=1) {
+                Util.calculateCollision(this.cars[i],this.rocks[i2]);
+                }
             this.cars[i].move();
         }
         requestAnimationFrame(this.gameLoop.bind(this));
     }
 
     public endGame(carX){
-        if(carX >= 350){
-            document.getElementById("score").innerHTML = "Score : 0";
+        this.score += carX;
+        console.log(carX);
+        if(carX == 0){
+            this.score = 0;
         }
-        else{
-            document.getElementById("score").innerHTML = "Score : " + carX * 7;
-        }
+        document.getElementById("score").innerHTML = "Score : " + this.score * 7;
+        
     }
 
 } 
