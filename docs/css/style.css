@@ -1,0 +1,57 @@
+body {
+    background-color: #666;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow:hidden;
+    margin:0px; padding:0px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body * {
+    position: absolute;
+    display: block;
+    margin:0px; padding:0px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+container {
+    background-image: url(../images/road.png);
+    background-repeat: no-repeat;
+    width:800px; height:600px;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    overflow:hidden;
+}
+
+score {
+    color:white;
+    font-size : 22px;
+    padding:20px;
+}
+
+#car {
+    background-image: url(../images/car.png);
+    width:145px; height: 45px;
+}
+
+wheel {
+    background-image: url(../images/wheel.png);
+    width:22px; height: 22px;
+}
+
+#rock {
+    background-image: url(../images/rock.png);
+    width:62px; height: 62px;
+}
+
+
+
+@keyframes cloudanimation {
+  0% {
+    transform: translate(-150px, 30px);
+  }
+  
+  100% {
+    transform: translate(800px, 30px);
+  }
+}
