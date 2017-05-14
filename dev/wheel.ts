@@ -6,6 +6,7 @@ class Wheel {
     constructor(x,y) {
         let HTMLElement = document.getElementsByClassName("car");
         let div = document.createElement("wheel");
+        
         HTMLElement[Wheel.carCount].appendChild(div);
 
         Wheel.wheelCount+=1;
