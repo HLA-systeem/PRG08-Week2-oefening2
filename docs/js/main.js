@@ -1,16 +1,20 @@
 var Wheel = (function () {
     function Wheel(x, y) {
-        this.carNum = 0;
         this.TwoWheels = false;
         var HTMLElement = document.getElementsByClassName("car");
         var div = document.createElement("wheel");
-        HTMLElement[this.carNum].appendChild(div);
-        if (this.TwoWheels == true)
-            this.carNum += 1;
+        HTMLElement[Wheel.carCount].appendChild(div);
+        Wheel.wheelCount += 1;
+        if (Wheel.wheelCount == 2) {
+            Wheel.wheelCount = 0;
+            Wheel.carCount += 1;
+        }
         div.style.transform = "translate(" + x + "px," + y + "px)";
     }
     return Wheel;
 }());
+Wheel.carCount = 0;
+Wheel.wheelCount = 0;
 var Car = (function () {
     function Car(x, y) {
         var _this = this;
