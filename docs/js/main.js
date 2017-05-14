@@ -31,7 +31,6 @@ var Car = (function () {
         this.y = y;
         var rando = Math.floor((Math.random() * 4) + 1);
         this.speed = rando;
-        window.addEventListener("keyup", this.onKey.bind(this));
         this.div.addEventListener("click", function (e) { return _this.onClick(e); });
         this.move();
     }
@@ -64,10 +63,6 @@ var Car = (function () {
             this.x += this.speed;
         }
         this.div.style.transform = "translate(" + this.x + "px," + this.y + "px)";
-    };
-    Car.prototype.onKey = function (event) {
-        console.log('keyPress');
-        this.braking = true;
     };
     Car.prototype.onClick = function (event) {
         this.speed = 0;

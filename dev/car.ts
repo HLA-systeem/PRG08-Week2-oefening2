@@ -54,7 +54,6 @@ class Car {
         let rando = Math.floor ((Math.random() * 4) + 1);
         this.speed = rando;
 
-        window.addEventListener("keyup", this.onKey.bind(this));
         this.div.addEventListener("click", (e:MouseEvent) => this.onClick(e)); //bind is the old way, => is the moder way
 
         this.move();
@@ -71,11 +70,6 @@ class Car {
 
         this.div.style.transform ="translate(" + this.x + "px," + this.y + "px)";
     } 
-
-    private onKey(event:KeyboardEvent):void {
-        console.log('keyPress');
-        this.braking = true;
-    }
 
     private onClick(event:MouseEvent):void {
         this.speed = 0;
