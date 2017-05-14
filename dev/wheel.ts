@@ -7,8 +7,9 @@ class Wheel {
 
         let div = document.createElement("wheel");
         HTMLElement[this.carNum].appendChild(div);
-        if(this.TwoWheels == true)
-        this.carNum += 1;
-        div.style.transform ="translate(" + x + "px," + y + "px)";
+        if(this.TwoWheels == true){
+            this.carNum += 1;
+            div.style.transform ="translate(" + x + "px," + y + "px)";
+        }
     }
 }
